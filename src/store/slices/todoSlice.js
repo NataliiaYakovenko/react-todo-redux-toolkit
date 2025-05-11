@@ -22,12 +22,21 @@ const todoSlice = createSlice({
       state.error = "";
     },
 
-   
-
-
+    completedTask: (state, { payload }) => {
+      const updatedTasks = state.arrayTask.map((task) => {
+        if (task.id === payload.id) {
+          return {
+            ...task,
+            completed: !task.completed,
+          };
+        }
+        return task;
+      });
+      state.arrayTask = updatedTasks;
+    },
   },
 });
 
-const {reducer,actions}= todoSlice
+const { reducer, actions } = todoSlice;
 
-export default reducer
+export default reducer;
