@@ -34,6 +34,13 @@ const todoSlice = createSlice({
       });
       state.arrayTask = updatedTasks;
     },
+
+    removeTask: (state, { payload }) => {
+      const filteredTasks = state.arrayTask.filter((task) => {
+        return task.id !== payload;
+      });
+      state.arrayTask = filteredTasks;
+    },
   },
 });
 
