@@ -8,8 +8,13 @@ import {
   setDeadline,
 } from "../../store/slices/todoSlice";
 import styles from "./Todo.module.scss";
+import TODO_SCHEMA from "../../schemas/TodoSchema";
 
-const Todo = (props) => {
+const initialState = {
+  newTask: ''
+};
+
+const Todo = ({ addTask, completedTask, removeTask, setDeadline }) => {
   const submitHandler = (values, actions) => {
     console.log(values);
     actions.resetForm();
@@ -20,7 +25,7 @@ const Todo = (props) => {
       <h1>YOUR TODO LIST</h1>
 
       <Formik
-        initialValues={props.initialState}
+        initialValues={initialState}
         onSubmit={submitHandler}
         validationSchema={TODO_SCHEMA}
       >
@@ -45,4 +50,4 @@ const Todo = (props) => {
   );
 };
 
-export default connect()(Todo);
+export default connect(mapStateToProps, mapDispatchToProps)(Todo);
