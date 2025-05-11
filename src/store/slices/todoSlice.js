@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 const initialState = {
   arrayTask: [],
   newTask: "",
+  deadline: "",
   error: "",
 };
 
@@ -16,10 +17,12 @@ const todoSlice = createSlice({
         id: uuidv4(),
         text: state.newTask,
         completed: false,
+        deadline: state.deadline,
       };
       state.arrayTask.push(newObjectTask);
       state.newTask = "";
       state.error = "";
+      state.deadline = "";
     },
 
     completedTask: (state, { payload }) => {
@@ -41,9 +44,15 @@ const todoSlice = createSlice({
       });
       state.arrayTask = filteredTasks;
     },
+
+    setDeadline: (state, { payload }) => {
+      state.deadline = payload;
+    },
   },
 });
 
 const { reducer, actions } = todoSlice;
+
+export const { addTask, completedTask, removeTask, setDeadline } = actions;
 
 export default reducer;
