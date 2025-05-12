@@ -10,7 +10,7 @@ const initialState = {
 
 export const getWeatherThunk = createAsyncThunk(
   "weather/getWeather",
-  async (payload, thuncApi) => {
+  async (thuncApi) => {
     try {
       const { data } = await getWeather();
       return data;
@@ -25,7 +25,7 @@ const weatherSlice = createSlice({
   name: "weather",
   reducers: {},
   extraReducers: (bulder) => {
-    bulder.addCase(getWeatherThunk.pending, (state, action) => {
+    bulder.addCase(getWeatherThunk.pending, (state) => {
       state.isFetching = true;
       state.error = null;
     });
@@ -40,5 +40,5 @@ const weatherSlice = createSlice({
   },
 });
 
-const { reducer, actions } = weatherSlice;
+const { reducer } = weatherSlice;
 export default reducer;

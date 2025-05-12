@@ -6,6 +6,7 @@ const store = configureStore({
   reducer: {
     todo: todoReducer,
     weather: weatherReducer,
+    // users: usersReducer
   },
 });
 
