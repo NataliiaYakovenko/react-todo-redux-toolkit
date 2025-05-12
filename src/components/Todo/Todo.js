@@ -11,7 +11,8 @@ import styles from "./Todo.module.scss";
 import TODO_SCHEMA from "../../schemas/TodoSchema";
 
 const initialState = {
-  newTask: ''
+  newTask: "",
+  deadline: "",
 };
 
 const Todo = ({ addTask, completedTask, removeTask, setDeadline }) => {
@@ -40,7 +41,6 @@ const Todo = ({ addTask, completedTask, removeTask, setDeadline }) => {
                 />
                 <ErrorMessage name="newTask" component="p" />
               </label>
-
               <button>ADD</button>
             </Form>
           );
@@ -49,5 +49,28 @@ const Todo = ({ addTask, completedTask, removeTask, setDeadline }) => {
     </>
   );
 };
+
+const mapStateToProps = (state) => {
+  return {
+    newTask: state.todo.newTask,
+    deadline: state.todo.deadline,
+    error: state.todo.error,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  addTask: () => {
+    return dispatch(addTask());
+  },
+  completedTask: () => {
+    return dispatch(completedTask());
+  },
+  removeTask: () => {
+    return dispatch(removeTask());
+  },
+  setDeadline: () => {
+    return dispatch(setDeadline());
+  },
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Todo);
