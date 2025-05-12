@@ -22,7 +22,7 @@ const Todo = ({ addTask, completedTask, removeTask, setDeadline }) => {
   };
 
   return (
-    <>
+    <div className={styles.todoWrapper}>
       <h1>YOUR TODO LIST</h1>
 
       <Formik
@@ -46,7 +46,7 @@ const Todo = ({ addTask, completedTask, removeTask, setDeadline }) => {
           );
         }}
       </Formik>
-    </>
+    </div>
   );
 };
 

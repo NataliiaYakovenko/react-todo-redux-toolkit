@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { getWeatherThunk } from "../../../store/slices/weatherSlice";
+import styles from './Weather.module.scss'
 
 const Weather = ({ weather, isFetching, error, getWeather }) => {
   useEffect(() => {
@@ -8,16 +9,17 @@ const Weather = ({ weather, isFetching, error, getWeather }) => {
   }, [getWeather]);
 
   return (
-    <>
+    <div>
       {isFetching && <div>Loading...</div>}
       {error && <div>!!!ERROR!!! {error.message}</div>}
       {!isFetching && !error && weather.current && (
-        <div>
+
+        <div className={styles.weatherWrapper}>
           <h3>Current Weather Zaporizhzhia:</h3>
-          <p>{weather.current.temperature_2m}°C</p>
+          <p>{weather.current.temperature_2m} °C</p>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

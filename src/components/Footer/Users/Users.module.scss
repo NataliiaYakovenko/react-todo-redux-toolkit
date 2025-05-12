@@ -1,0 +1,24 @@
+.usersWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 300px;
+  background-color: burlywood;
+  padding: 20px;
+
+  .usersCards {
+    display: flex;
+    gap: 40px
+   
+  }
+
+    .usersContainer {
+      border: 1px solid blue;
+      max-width: 150px;
+      max-height: 150px;
+
+      .usersImage {
+      }
+    }
+  }
+
