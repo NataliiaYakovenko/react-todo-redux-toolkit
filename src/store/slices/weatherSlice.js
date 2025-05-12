@@ -1,22 +1,24 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { createSlice } from "@reduxjs/toolkit";
-import axiosWeather from "../../api/apiHeaderWeather";
+import getWeather from "../../api/apiHeaderWeather";
 
 const initialState = {
-  degrees: "",
-  speedWind: "",
+  weather: "",
   isFetching: false,
   error: null,
 };
 
-export const getWeatherThunk = createAsyncThunk(async (payload, thuncApi) => {
-  try {
-    const { data } = await axiosWeather();
-    return data;
-  } catch (error) {
-    return thuncApi.rejectWithValue({ message: error.message });
+export const getWeatherThunk = createAsyncThunk(
+  "weather/getWeather",
+  async (payload, thuncApi) => {
+    try {
+      const { data } = await getWeather();
+      return data;
+    } catch (error) {
+      return thuncApi.rejectWithValue({ message: error.message });
+    }
   }
-});
+);
 
 const weatherSlice = createSlice({
   initialState,
@@ -28,8 +30,7 @@ const weatherSlice = createSlice({
       state.error = null;
     });
     bulder.addCase(getWeatherThunk.fulfilled, (state, { payload }) => {
-      state.degrees = payload;
-      state.speedWind = payload;
+      state.weather = payload;
       state.isFetching = false;
     });
     bulder.addCase(getWeatherThunk.rejected, (state, { payload }) => {
@@ -40,3 +41,4 @@ const weatherSlice = createSlice({
 });
 
 const { reducer, actions } = weatherSlice;
+export default reducer;
