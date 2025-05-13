@@ -4,18 +4,43 @@
   align-items: center;
   min-width: 300px;
   padding: 20px;
+  color: white;
+
+  .title{
+    font-size: 30px;
+    margin-bottom: 0;
+  }
 
   .usersCards {
     display: flex;
-    gap: 40px;
+    flex-wrap: wrap;
+    gap:40px;
+   
 
     .usersContainer {
-      border: 1px solid blue;
-      max-width: 150px;
-      max-height: 150px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 130px;
+      height: 140px;
+      border: 2px solid white;
+      border-radius: 5px;
+      padding: 5px;
 
-      //   .usersImage {
-      //   }
+
+      .usersImage {
+        width: 50px;
+        height: 50px;
+        border-radius: 5px;
+        margin-bottom: 0;
+      }
+
+      .userName{
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 0;
+      }
     }
   }
 }

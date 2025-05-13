@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { getUsersThunk } from "../../../store/slices/usersSlice";
 import styles from "./Users.module.scss";
 
+
 const Users = ({ users, isFetching, error, getUsers }) => {
   useEffect(() => {
     getUsers();
@@ -14,7 +15,8 @@ const Users = ({ users, isFetching, error, getUsers }) => {
       {error && <div>!!!ERROR!!! {error.message}</div>}
       {!isFetching && !error && users.results && (
         <div className={styles.usersWrapper}>
-          <h3>Comments our users</h3>
+          <h3 className={styles.title}>Comments our users</h3>
+
           <div className={styles.usersCards}>
             {users.results.map((u, i) => {
               return (
@@ -24,7 +26,7 @@ const Users = ({ users, isFetching, error, getUsers }) => {
                     src={u.picture.thumbnail}
                     alt={`${u.name.first} ${u.name.last}`}
                   />
-                  <p>
+                  <p className={styles.userName}>
                     {u.name.first} {u.name.last}
                   </p>
                   <p>Comments...</p>

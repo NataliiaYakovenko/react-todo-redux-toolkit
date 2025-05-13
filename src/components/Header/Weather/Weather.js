@@ -15,8 +15,8 @@ const Weather = ({ weather, isFetching, error, getWeather }) => {
       {!isFetching && !error && weather.current && (
 
         <div className={styles.weatherWrapper}>
-          <h3>Current Weather Zaporizhzhia:</h3>
-          <p>{weather.current.temperature_2m} °C</p>
+          <h3>Zaporizhzhia:</h3>
+          <p className={styles.degrees}>{weather.current.temperature_2m}°C</p>
         </div>
       )}
     </div>
