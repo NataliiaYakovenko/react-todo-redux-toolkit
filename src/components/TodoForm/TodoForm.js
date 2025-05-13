@@ -7,7 +7,7 @@ import {
   removeTask,
   setDeadline,
 } from "../../store/slices/todoSlice";
-import styles from "./Todo.module.scss";
+import styles from "./TodoForm.module.scss";
 import TODO_SCHEMA from "../../schemas/TodoSchema";
 
 const initialState = {
@@ -15,9 +15,10 @@ const initialState = {
   deadline: "",
 };
 
-const Todo = ({ addTask, completedTask, removeTask, setDeadline }) => {
+const TodoForm = ({ addTask, completedTask, removeTask, setDeadline }) => {
   const submitHandler = (values, actions) => {
     console.log(values);
+    addTask(values)
     actions.resetForm();
   };
 
@@ -39,9 +40,9 @@ const Todo = ({ addTask, completedTask, removeTask, setDeadline }) => {
                   name="newTask"
                   placeholder="Write your task"
                 />
-                <ErrorMessage name="newTask" component="p" />
               </label>
               <button>ADD</button>
+              <ErrorMessage name="newTask" component="p" />
             </Form>
           );
         }}
@@ -59,8 +60,8 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  addTask: () => {
-    return dispatch(addTask());
+  addTask: (task) => {
+    return dispatch(addTask(task));
   },
   completedTask: () => {
     return dispatch(completedTask());
@@ -73,4 +74,4 @@ const mapDispatchToProps = (dispatch) => ({
   },
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Todo);
+export default connect(mapStateToProps, mapDispatchToProps)(TodoForm);

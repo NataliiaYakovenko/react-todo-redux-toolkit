@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { v4 as uuidv4 } from "uuid";
 
 const initialState = {
-  arrayTask: [],
+  arrayTask: [111,222],
   newTask: "",
   deadline: "",
   error: "",
@@ -12,10 +12,11 @@ const todoSlice = createSlice({
   initialState,
   name: "todo",
   reducers: {
-    addTask: (state) => {
+    addTask: (state,{payload}) => {
+      console.log(payload);
       const newObjectTask = {
         id: uuidv4(),
-        text: state.newTask,
+        text: payload.newTask,
         completed: false,
         deadline: state.deadline,
       };
@@ -30,7 +31,7 @@ const todoSlice = createSlice({
         if (task.id === payload.id) {
           return {
             ...task,
-            completed: !task.completed,
+            completed: true,
           };
         }
         return task;
