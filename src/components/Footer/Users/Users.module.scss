@@ -7,17 +7,15 @@
 
   .usersCards {
     display: flex;
-    gap: 40px
-   
-  }
+    gap: 40px;
 
     .usersContainer {
       border: 1px solid blue;
       max-width: 150px;
       max-height: 150px;
 
-      .usersImage {
-      }
+      //   .usersImage {
+      //   }
     }
   }
-
+}

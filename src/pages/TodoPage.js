@@ -8,13 +8,24 @@ import Todos from "../components/Todos/Todos";
 
 const TodoPage = () => {
   return (
-    <div>
-      <Weather />
-      <TodoForm />
-      <Todos />
+    <>
       <Slider />
-      <Users />
-    </div>
+
+      <div className={styles.pageWrapper}>
+        <header>
+          <Weather />
+        </header>
+
+        <main className={styles.mainContent}>
+          <TodoForm />
+          <Todos />
+        </main>
+
+        <footer className={styles.footer}>
+          <Users />
+        </footer>
+      </div>
+    </>
   );
 };
 
