@@ -15,16 +15,22 @@ const initialState = {
   deadline: "",
 };
 
-const TodoForm = ({ addTask, completedTask, removeTask, setDeadline }) => {
+const TodoForm = ({
+  arrayTask,
+  addTask,
+  completedTask,
+  removeTask,
+  setDeadline,
+}) => {
   const submitHandler = (values, actions) => {
     console.log(values);
-    addTask(values)
+    addTask(values);
     actions.resetForm();
   };
 
   return (
     <div className={styles.todoWrapper}>
-      <h1>YOUR TODO LIST</h1>
+      <h1>TODO YOUR TRAVEL</h1>
 
       <Formik
         initialValues={initialState}
@@ -41,8 +47,50 @@ const TodoForm = ({ addTask, completedTask, removeTask, setDeadline }) => {
                   placeholder="Write your task"
                 />
               </label>
+              <label>
+                <Field type="date" name="deadline" />
+              </label>
+              <ErrorMessage name="deadline" component="p" />
               <button>ADD</button>
               <ErrorMessage name="newTask" component="p" />
+
+              <div>
+                {arrayTask.map(({ id, text, completed }) => {
+                  return (
+                    <div key={id} className={styles.listTasks}>
+                      <Field
+                        type="checkbox"
+                        checked={completed}
+                        onChange={() => completedTask(id)}
+                      />
+
+                      <textarea
+                        className={styles.listText}
+                        onClick={() => {
+                          return completedTask(id);
+                        }}
+                        style={{
+                          cursor: "pointer",
+                          backgroundColor: completed
+                            ? "green"
+                            : "rgb(104, 2, 82)",
+                          textDecoration: completed ? "underline" : "none",
+                          color: completed ? "orange" : "white",
+                        }}
+                      >
+                        {text}
+                      </textarea>
+
+                      <button
+                        className={styles.btnList}
+                        onClick={() => removeTask(id)}
+                      >
+                        Delete
+                      </button>
+                    </div>
+                  );
+                })}
+              </div>
             </Form>
           );
         }}
@@ -53,6 +101,7 @@ const TodoForm = ({ addTask, completedTask, removeTask, setDeadline }) => {
 
 const mapStateToProps = (state) => {
   return {
+    arrayTask: state.todo.arrayTask,
     newTask: state.todo.newTask,
     deadline: state.todo.deadline,
     error: state.todo.error,
@@ -63,11 +112,11 @@ const mapDispatchToProps = (dispatch) => ({
   addTask: (task) => {
     return dispatch(addTask(task));
   },
-  completedTask: () => {
-    return dispatch(completedTask());
+  completedTask: (id) => {
+    return dispatch(completedTask({ id }));
   },
-  removeTask: () => {
-    return dispatch(removeTask());
+  removeTask: (id) => {
+    return dispatch(removeTask(id));
   },
   setDeadline: () => {
     return dispatch(setDeadline());

@@ -15,7 +15,6 @@ const Users = ({ users, isFetching, error, getUsers }) => {
       {error && <div>!!!ERROR!!! {error.message}</div>}
       {!isFetching && !error && users.results && (
         <div className={styles.usersWrapper}>
-          <h3 className={styles.title}>Comments our users</h3>
 
           <div className={styles.usersCards}>
             {users.results.map((u, i) => {

@@ -1,5 +1,32 @@
-.todoWrapper{
-    max-width: 400px;
-    border: 4px solid blueviolet;
-    background-color: rgb(170, 134, 121);
+.todoWrapper {
+  max-width: 600px;
+  border: 4px solid blueviolet;
+  background-color: rgb(170, 134, 121);
+
+  .listTasks {
+    display: flex;
+    gap: 4%;
+    margin-top: 4%;
+    margin-bottom: 10px;
+
+    .listText {
+      font-size: 70%;
+      padding: 1%;
+      border-radius: 10px;
+      border: none;
+      color: white;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: pre-wrap;
+    }
+
+    .btnList {
+      font-size: 100%;
+      background-color: white;
+      border-color: white;
+      border-radius: 10px;
+      color: blue;
+    }
+  }
 }
