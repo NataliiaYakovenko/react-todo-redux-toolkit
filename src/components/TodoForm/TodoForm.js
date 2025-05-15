@@ -30,7 +30,7 @@ const TodoForm = ({
 
   return (
     <div className={styles.todoWrapper}>
-      <h1>TODO YOUR TRAVEL</h1>
+      <h1 className={styles.title}>TODO MY TRAVEL</h1>
 
       <Formik
         initialValues={initialState}
@@ -40,23 +40,37 @@ const TodoForm = ({
         {(formikProps) => {
           return (
             <Form>
-              <label>
-                <Field
-                  type="text"
-                  name="newTask"
-                  placeholder="Write your task"
-                />
-              </label>
+              <div className={styles.newTaskWrapper}>
+                <label>
+                  <Field
+                    className={styles.addTask}
+                    type="text"
+                    name="newTask"
+                    placeholder="Write your task"
+                  />
 
-              <label>
-                <Field type="date" name="deadline" />
-              </label>
-              <ErrorMessage name="deadline" component="p" />
+                  <button className={styles.btnAddTask} type="submit">
+                    ADD
+                  </button>
 
-              <button>ADD</button>
-              <ErrorMessage name="newTask" component="p" />
+                  <ErrorMessage
+                    className={styles.errorrNewTask}
+                    name="newTask"
+                    component="p"
+                  />
+                </label>
 
-              <div>
+                <label>
+                  <Field
+                    className={styles.deadlineAddTask}
+                    type="date"
+                    name="deadline"
+                  />
+                  {/* <ErrorMessage name="deadline" component="p" /> */}
+                </label>
+              </div>
+
+              <Form>
                 {arrayTask.map(({ id, text, completed, deadline }) => {
                   return (
                     <div key={id} className={styles.listTasks}>
@@ -73,26 +87,13 @@ const TodoForm = ({
                           return completedTask(id);
                         }}
                         style={{
-                          cursor: "pointer",
                           backgroundColor: completed
-                            ? "green"
-                            : "rgb(104, 2, 82)",
+                            ? "rgb(198, 232, 158)"
+                            : "rgba(247, 154, 206, 0.95)",
                         }}
                       >
                         {text}
                       </textarea>
-
-                      <span
-                        className={styles.deadline}
-                        style={{
-                          color:
-                            deadline && new Date(deadline) < new Date()
-                              ? "rgb(104, 2, 82)"
-                              : "white",
-                        }}
-                      >
-                        {deadline}
-                      </span>
 
                       <button
                         className={styles.btnList}
@@ -100,10 +101,21 @@ const TodoForm = ({
                       >
                         Delete
                       </button>
+                      <span
+                        className={styles.deadline}
+                        style={{
+                          color:
+                            deadline && new Date(deadline) < new Date()
+                              ? "rgb(186, 4, 4)"
+                              : "white",
+                        }}
+                      >
+                        {deadline}
+                      </span>
                     </div>
                   );
                 })}
-              </div>
+              </Form>
             </Form>
           );
         }}

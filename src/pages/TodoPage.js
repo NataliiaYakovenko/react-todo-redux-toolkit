@@ -11,7 +11,7 @@ const TodoPage = () => {
     <>
       <Slider />
 
-      <div className={styles.pageWrapper}>
+      <div className={styles.header}>
         <header>
           <Weather />
         </header>

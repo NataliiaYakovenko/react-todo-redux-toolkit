@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 const Todos = ({ arrayTask }) => {
   return (
-    <div>
+    <div >
       {arrayTask.map((task) => {
         return task.text;
       })}
