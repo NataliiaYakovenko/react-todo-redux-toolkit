@@ -47,15 +47,17 @@ const TodoForm = ({
                   placeholder="Write your task"
                 />
               </label>
+
               <label>
                 <Field type="date" name="deadline" />
               </label>
               <ErrorMessage name="deadline" component="p" />
+
               <button>ADD</button>
               <ErrorMessage name="newTask" component="p" />
 
               <div>
-                {arrayTask.map(({ id, text, completed }) => {
+                {arrayTask.map(({ id, text, completed, deadline }) => {
                   return (
                     <div key={id} className={styles.listTasks}>
                       <Field
@@ -66,6 +68,7 @@ const TodoForm = ({
 
                       <textarea
                         className={styles.listText}
+                        readOnly
                         onClick={() => {
                           return completedTask(id);
                         }}
@@ -74,12 +77,22 @@ const TodoForm = ({
                           backgroundColor: completed
                             ? "green"
                             : "rgb(104, 2, 82)",
-                          textDecoration: completed ? "underline" : "none",
-                          color: completed ? "orange" : "white",
                         }}
                       >
                         {text}
                       </textarea>
+
+                      <span
+                        className={styles.deadline}
+                        style={{
+                          color:
+                            deadline && new Date(deadline) < new Date()
+                              ? "rgb(104, 2, 82)"
+                              : "white",
+                        }}
+                      >
+                        {deadline}
+                      </span>
 
                       <button
                         className={styles.btnList}

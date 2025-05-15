@@ -1,18 +1,15 @@
+.weatherWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: white;
+  font-size: 30px;
+  gap: 10px;
+  margin-left: 100px;
+  margin-top: -15px;
 
-
-.weatherWrapper{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    color: white;
-    font-size: 40px;
-    gap: 10px;
-
-
-
-    .degrees{
-        font-size: 50px;
-        font-weight: bolder;
-    }
-
+  .degrees {
+    font-size: 35px;
+    font-weight: bolder;
+  }
 }

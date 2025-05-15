@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { v4 as uuidv4 } from "uuid";
 
 const initialState = {
-  arrayTask: [111,222],
+  arrayTask: [],
   newTask: "",
   deadline: "",
   error: "",
@@ -18,7 +18,7 @@ const todoSlice = createSlice({
         id: uuidv4(),
         text: payload.newTask,
         completed: false,
-        deadline: state.deadline,
+        deadline: payload.deadline,
       };
       state.arrayTask.push(newObjectTask);
       state.newTask = "";
