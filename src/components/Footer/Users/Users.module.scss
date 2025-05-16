@@ -1,17 +1,24 @@
 .usersWrapper {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  justify-content: center;
   min-width: 300px;
   padding: 20px;
   color: white;
 
+  .PreviousPage {
+    font-size: 50px;
+    font-weight: bolder;
+    background-color: transparent;
+    border: none;
+    color: white;
+  }
 
   .usersCards {
     display: flex;
     flex-wrap: wrap;
-    gap:40px;
-   
+    gap: 40px;
 
     .usersContainer {
       display: flex;
@@ -24,7 +31,6 @@
       border-radius: 5px;
       padding: 5px;
 
-
       .usersImage {
         width: 50px;
         height: 50px;
@@ -32,11 +38,18 @@
         margin-bottom: 0;
       }
 
-      .userName{
+      .userName {
         font-size: 16px;
         font-weight: bold;
         margin-bottom: 0;
       }
     }
+  }
+  .nextBtnHandler {
+    font-size: 50px;
+    font-weight: bolder;
+    background-color: transparent;
+    border: none;
+    color: white;
   }
 }

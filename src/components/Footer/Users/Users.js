@@ -7,7 +7,7 @@ const Users = ({ users, isFetching, error, getUsers }) => {
   const [page, setPage] = useState(1);
   useEffect(() => {
     getUsers(page);
-  }, [getUsers,page]);
+  }, [getUsers, page]);
 
   const prevBtnHandler = () => {
     if (page > 1) {
@@ -24,10 +24,16 @@ const Users = ({ users, isFetching, error, getUsers }) => {
       {isFetching && <div>Loading...</div>}
       {error && <div>!!!ERROR!!! {error.message}</div>}
       {!isFetching && !error && users.results && (
+
         <div className={styles.usersWrapper}>
-          <button onClick={prevBtnHandler} style={{ margin: "5px" }}>
-            Previous page
+          <button
+            className={styles.PreviousPage}
+            onClick={prevBtnHandler}
+            style={{ margin: "5px" }}
+          >
+            {"<"}
           </button>
+          
           <div className={styles.usersCards}>
             {users.results.map((u, i) => {
               return (
@@ -45,7 +51,13 @@ const Users = ({ users, isFetching, error, getUsers }) => {
               );
             })}
           </div>
-          <button onClick={nextBtnHandler}>Next page</button>
+          <button
+            className={styles.nextBtnHandler}
+            onClick={nextBtnHandler}
+            style={{ margin: "5px" }}
+          >
+            {">"}
+          </button>
         </div>
       )}
     </div>

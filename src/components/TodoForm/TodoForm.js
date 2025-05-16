@@ -90,9 +90,14 @@ const TodoForm = ({
                           return completedTask(id);
                         }}
                         style={{
-                          backgroundColor: completed
-                            ? "rgb(205, 216, 239)"
-                            : "rgba(247, 154, 206, 0.95)",
+                          backgroundColor:
+                            !completed &&
+                            deadline &&
+                            new Date(deadline) < new Date()
+                              ? "red"
+                              : completed
+                              ? "rgb(205, 216, 239)"
+                              : "rgba(247, 154, 206, 0.95)",
                         }}
                       >
                         {text}
@@ -108,9 +113,11 @@ const TodoForm = ({
                         className={styles.deadline}
                         style={{
                           color:
-                            deadline && new Date(deadline) < new Date()
+                            !completed &&
+                            deadline &&
+                            new Date(deadline) < new Date()
                               ? "rgb(186, 4, 4)"
-                              : "white",
+                              : "blue",
                         }}
                       >
                         {deadline}
