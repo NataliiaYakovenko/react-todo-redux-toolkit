@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 import React from "react";
+import cx from "classnames";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import {
   addTask,
@@ -43,7 +44,9 @@ const TodoForm = ({
               <div className={styles.newTaskWrapper}>
                 <label>
                   <Field
-                    className={styles.addTask}
+                    className={cx(styles.addTask, {
+                      [styles.inValidInput]: formikProps.touched.newTask,
+                    })}
                     type="text"
                     name="newTask"
                     placeholder="Write your task"
@@ -88,7 +91,7 @@ const TodoForm = ({
                         }}
                         style={{
                           backgroundColor: completed
-                            ? "rgb(198, 232, 158)"
+                            ? "rgb(205, 216, 239)"
                             : "rgba(247, 154, 206, 0.95)",
                         }}
                       >
