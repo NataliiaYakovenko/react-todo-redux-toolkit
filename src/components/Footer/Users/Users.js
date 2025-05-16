@@ -1,13 +1,23 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { getUsersThunk } from "../../../store/slices/usersSlice";
 import styles from "./Users.module.scss";
 
-
 const Users = ({ users, isFetching, error, getUsers }) => {
+  const [page, setPage] = useState(1);
   useEffect(() => {
-    getUsers();
-  }, [getUsers]);
+    getUsers(page);
+  }, [getUsers,page]);
+
+  const prevBtnHandler = () => {
+    if (page > 1) {
+      setPage(page - 1);
+    }
+  };
+
+  const nextBtnHandler = () => {
+    setPage(page + 1);
+  };
 
   return (
     <div>
@@ -15,7 +25,9 @@ const Users = ({ users, isFetching, error, getUsers }) => {
       {error && <div>!!!ERROR!!! {error.message}</div>}
       {!isFetching && !error && users.results && (
         <div className={styles.usersWrapper}>
-
+          <button onClick={prevBtnHandler} style={{ margin: "5px" }}>
+            Previous page
+          </button>
           <div className={styles.usersCards}>
             {users.results.map((u, i) => {
               return (
@@ -33,6 +45,7 @@ const Users = ({ users, isFetching, error, getUsers }) => {
               );
             })}
           </div>
+          <button onClick={nextBtnHandler}>Next page</button>
         </div>
       )}
     </div>
@@ -46,7 +59,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  getUsers: () => dispatch(getUsersThunk()),
+  getUsers: (page) => dispatch(getUsersThunk(page)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Users);

@@ -2,6 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { createSlice } from "@reduxjs/toolkit";
 import getUsers from "../../api/apiFooterUsers";
 
+
 const initialState = {
   users: [],
   isFetching: false,
@@ -10,9 +11,9 @@ const initialState = {
 
 export const getUsersThunk = createAsyncThunk(
   "users/getUsers",
-  async (thuncApi) => {
+  async (page=1,thuncApi) => {
     try {
-      const { data } = await getUsers();
+      const { data } = await getUsers(7, page);
       return data;
     } catch (error) {
       return thuncApi.rejectWithValue({ message: error.message });
