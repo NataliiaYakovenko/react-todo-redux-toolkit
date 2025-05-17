@@ -7,12 +7,16 @@
   padding: 20px;
   color: white;
 
-  .PreviousPage {
+  .previousPage {
     font-size: 50px;
     font-weight: bolder;
     background-color: transparent;
     border: none;
     color: white;
+  }
+
+  .previousPage:hover{
+    color: orange;
   }
 
   .usersCards {
@@ -27,7 +31,7 @@
       justify-content: center;
       width: 150px;
       height: 180px;
-      border: 2px solid white;
+      border: 3px solid white;
       border-radius: 5px;
       padding: 5px;
 
@@ -48,11 +52,21 @@
       }
     }
   }
-  .nextBtnHandler {
+
+  .usersContainer:hover{
+    border: 3px solid orange;
+    color: orange;
+  }
+  
+  .nextPage {
     font-size: 50px;
     font-weight: bolder;
     background-color: transparent;
     border: none;
     color: white;
+  }
+
+  .nextPage:hover{
+    color: orange;
   }
 }

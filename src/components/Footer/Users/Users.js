@@ -26,7 +26,7 @@ const Users = ({ users, isFetching, error, getUsers }) => {
       {!isFetching && !error && users.results && (
         <div className={styles.usersWrapper}>
           <button
-            className={styles.PreviousPage}
+            className={styles.previousPage}
             onClick={prevBtnHandler}
             style={{ margin: "5px" }}
           >
@@ -54,7 +54,7 @@ const Users = ({ users, isFetching, error, getUsers }) => {
             })}
           </div>
           <button
-            className={styles.nextBtnHandler}
+            className={styles.nextPage}
             onClick={nextBtnHandler}
             style={{ margin: "5px" }}
           >
