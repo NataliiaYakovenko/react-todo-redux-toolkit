@@ -12,6 +12,29 @@
     font-size: 50px;
     margin-top: auto;
     text-align: center;
+    position: relative;
+  }
+  .title[data-tooltip]::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    left: 5%;
+    transform: translateX(-50%);
+    background-color: rgb(209, 227, 203);
+    color:blue;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 20px;
+    max-width: 320px;
+    white-space: pre-line;
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+  .title[data-tooltip]:hover::after {
+    opacity: 1;
+    visibility: visible;
   }
 
   .newTaskWrapper {

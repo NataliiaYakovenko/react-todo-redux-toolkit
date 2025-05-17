@@ -10,6 +10,7 @@ import {
 } from "../../store/slices/todoSlice";
 import styles from "./TodoForm.module.scss";
 import TODO_SCHEMA from "../../schemas/TodoSchema";
+import TitleTooltip from "./Tooltip";
 
 const initialState = {
   newTask: "",
@@ -31,7 +32,9 @@ const TodoForm = ({
 
   return (
     <div className={styles.todoWrapper}>
-      <h1 className={styles.title}>TODO MY TRAVEL</h1>
+      <h1 className={styles.title} data-tooltip={TitleTooltip.tooltip}>
+        TODO MY TRAVEL
+      </h1>
 
       <Formik
         initialValues={initialState}
