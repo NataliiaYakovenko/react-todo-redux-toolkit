@@ -24,7 +24,6 @@ const Users = ({ users, isFetching, error, getUsers }) => {
       {isFetching && <div>Loading...</div>}
       {error && <div>!!!ERROR!!! {error.message}</div>}
       {!isFetching && !error && users.results && (
-
         <div className={styles.usersWrapper}>
           <button
             className={styles.PreviousPage}
@@ -33,20 +32,23 @@ const Users = ({ users, isFetching, error, getUsers }) => {
           >
             {"<"}
           </button>
-          
+
           <div className={styles.usersCards}>
             {users.results.map((u, i) => {
               return (
-                <div className={styles.usersContainer} key={i}>
+                < div className={styles.usersContainer} key={i}>
                   <img
                     className={styles.usersImage}
                     src={u.picture.thumbnail}
                     alt={`${u.name.first} ${u.name.last}`}
                   />
-                  <p className={styles.userName}>
-                    {u.name.first} {u.name.last}
-                  </p>
-                  <p>Comments...</p>
+
+                  
+                    <p className={styles.userName}>
+                      {u.name.first} {u.name.last}
+                    </p>
+                    <p>Comments...</p>
+                  
                 </div>
               );
             })}

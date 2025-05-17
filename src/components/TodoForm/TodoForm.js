@@ -72,15 +72,14 @@ const TodoForm = ({
                     type="date"
                     name="deadline"
                   />
-                  {/* <ErrorMessage name="deadline" component="p" /> */}
                 </label>
               </div>
 
-              <Form>
+              <div>
                 {arrayTask.map(({ id, text, completed, deadline }) => {
                   return (
                     <div key={id} className={styles.listTasks}>
-                      <Field
+                      <Field className={styles.checkbox}
                         type="checkbox"
                         checked={completed}
                         onChange={() => completedTask(id)}
@@ -112,6 +111,7 @@ const TodoForm = ({
                       >
                         Delete
                       </button>
+
                       <span
                         className={styles.deadline}
                         style={{
@@ -128,7 +128,7 @@ const TodoForm = ({
                     </div>
                   );
                 })}
-              </Form>
+              </div>
             </Form>
           );
         }}

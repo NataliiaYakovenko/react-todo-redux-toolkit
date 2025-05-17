@@ -13,7 +13,7 @@ export const getUsersThunk = createAsyncThunk(
   "users/getUsers",
   async (page=1,thuncApi) => {
     try {
-      const { data } = await getUsers(7, page);
+      const { data } = await getUsers(6, page);
       return data;
     } catch (error) {
       return thuncApi.rejectWithValue({ message: error.message });
