@@ -1,15 +1,17 @@
 .todoWrapper {
   max-width: 900px;
+  min-width: 320px;
   width: 100%;
   border: 10px solid white;
   border-radius: 30px;
   background-image: url("https://image.slidesdocs.com/responsive-images/background/world-map-globe-on-a-bright-yellow-stock-illustration-powerpoint-background_bea5ac454c__960_540.jpg");
-  margin-left: 35%;
+  margin: 0 auto;
   color: white;
-  padding-bottom: 10px;
+  padding: 2%;
+  padding-top: 0;
 
   .title {
-    font-size: 50px;
+    font-size: 300%;
     margin-top: auto;
     text-align: center;
     position: relative;
@@ -22,10 +24,10 @@
     transform: translateX(-50%);
     background-color: rgb(209, 227, 203);
     color: blue;
-    padding: 10px;
+    padding: 2%;
     border-radius: 8px;
-    font-size: 20px;
-    max-width: 320px;
+    font-size: 45%;
+    max-width: 40%;
     white-space: pre-line;
     z-index: 999;
     opacity: 0;
@@ -42,10 +44,9 @@
   .newTaskWrapper {
     display: flex;
     justify-content: center;
-    margin-top: -20px;
 
     .addTask {
-      font-size: 30px;
+      font-size: 190%;
       padding: 5px;
       background-color: rgb(27, 39, 150);
       color: white;
@@ -56,12 +57,13 @@
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: pre-wrap;
+      margin-left: -4%;
     }
 
     .errorrNewTask {
       margin-top: auto;
-      margin-left: 15px;
-      font-size: 20px;
+      margin-left: 2%;
+      font-size: 130%;
       color: white;
       font-weight: bolder;
     }
@@ -71,7 +73,7 @@
     }
 
     .btnAddTask {
-      font-size: 30px;
+      font-size: 190%;
       padding: 5px;
       background-color: rgba(32, 3, 19, 0.95);
       color: white;
@@ -85,35 +87,33 @@
     }
 
     .deadlineAddTask {
-      font-size: 30px;
-      margin-left: 100px;
+      font-size: 250%;
+      margin-left: 20%;
       color: rgb(238, 237, 231);
       background-color: rgb(27, 39, 150);
       border-radius: 10px;
       padding: 3px;
       border: none;
-
     }
   }
 
   .listTasks {
     display: flex;
-    gap: 2px;
-    margin-top: 14px;
-    margin-left: 150px;
-    margin-bottom: 10px;
+    gap: 1%;
+    margin-top: 2%;
+    margin-left: 15%;
 
     .checkbox {
       width: 20px;
       height: 20px;
-      margin-top: 12px;
+      margin-top: 1.5%;
     }
 
     .listText {
-      font-size: 16px;
+      font-size: 100%;
+      padding: 5px;
       text-transform: uppercase;
-      width: 350px;
-      padding: 2px;
+      width: 45%;
       border-top-left-radius: 10px;
       border-bottom-left-radius: 10px;
       border: none;
@@ -131,10 +131,174 @@
     }
 
     .deadline {
-      font-size: 30px;
+      font-size: 200%;
       font-weight: bolder;
-      margin-left: 15px;
-      margin-top: 4px;
+      margin-left: 2%;
+    }
+  }
+}
+
+@media (max-width: 975px) {
+  .todoWrapper {
+    width: 70%;
+
+    .title {
+      font-size: 40px;
+    }
+
+    .newTaskWrapper {
+      margin-left: 6%;
+
+      .addTask {
+        font-size: 30px;
+        width: 70%;
+      }
+
+      .btnAddTask {
+        font-size: 30px;
+      }
+
+      .deadlineAddTask {
+        font-size: 30px;
+        width: 70%;
+      }
+    }
+
+    .listTasks {
+      width: 70%;
+      font-size: 12px;
+
+      .checkbox {
+        width: 20px;
+        height: 20px;
+      }
+
+      .deadline {
+        margin-top: 1%;
+      }
+    }
+  }
+}
+
+@media (max-width: 831px) {
+  .todoWrapper {
+    .title {
+      font-size: 30px;
+      margin-bottom: 5px;
+    }
+
+    .newTaskWrapper {
+      margin-left: 2%;
+
+      .addTask {
+        font-size: 20px;
+      }
+
+      .btnAddTask {
+        font-size: 20px;
+      }
+
+      .deadlineAddTask {
+        font-size: 22px;
+      }
+    }
+
+    .listTasks {
+      font-size: 9px;
+
+      .checkbox {
+        width: 15px;
+        height: 15px;
+      }
+    }
+  }
+}
+
+
+
+@media (max-width: 657px) {
+  .todoWrapper {
+    padding: 4%;
+
+    .title {
+      font-size: 24px;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .newTaskWrapper {
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      gap: 10px;
+
+      label:first-of-type {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+
+        .addTask {
+          font-size: 16px;
+          width: 70%;
+          // border-top-right-radius: 0;
+          // border-bottom-right-radius: 0;
+          margin: 0;
+        }
+
+        .btnAddTask {
+          font-size: 16px;
+          width: 30%;
+          // border-top-left-radius: 0;
+          // border-bottom-left-radius: 0;
+          margin: 0;
+        }
+      }
+
+      .deadlineAddTask {
+        font-size: 16px;
+        width: 100%;
+      }
+
+      .errorrNewTask {
+        font-size: 14px;
+        text-align: center;
+      }
+    }
+
+    .listTasks {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      // justify-content: space-between;
+      width: 100%;
+      flex-wrap: wrap;
+      font-size: 10px;
+      margin: 10px 0;
+      gap: 5px;
+
+      .checkbox {
+        width: 15px;
+        height: 15px;
+        // margin: 0 5px;
+      }
+
+      .listText {
+        width: 40%;
+        font-size: 14px;
+        margin: 0;
+        padding: 5px;
+      }
+
+      .btnList {
+        font-size: 12px;
+        padding: 5px;
+        white-space: nowrap;
+      }
+
+      .deadline {
+        font-size: 12px;
+        white-space: nowrap;
+      }
     }
   }
 }

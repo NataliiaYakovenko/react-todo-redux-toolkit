@@ -48,7 +48,7 @@ const TodoForm = ({
                 <label>
                   <Field
                     className={cx(styles.addTask, {
-                      [styles.inValidInput]: formikProps.touched.newTask,
+                      [styles.inValidInput]: !formikProps.isValid,
                     })}
                     type="text"
                     name="newTask"
@@ -79,7 +79,8 @@ const TodoForm = ({
                 {arrayTask.map(({ id, text, completed, deadline }) => {
                   return (
                     <div key={id} className={styles.listTasks}>
-                      <Field className={styles.checkbox}
+                      <Field
+                        className={styles.checkbox}
                         type="checkbox"
                         checked={completed}
                         onChange={() => completedTask(id)}
