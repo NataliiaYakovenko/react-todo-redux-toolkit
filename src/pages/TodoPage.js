@@ -4,7 +4,7 @@ import Users from "../components/Footer/Users/Users";
 import styles from "./TodoPage.module.scss";
 import Slider from "../components/Slader/Slader";
 import TodoForm from "../components/TodoForm/TodoForm";
-import Todos from "../components/Todos/Todos";
+
 
 const TodoPage = () => {
   return (
@@ -18,7 +18,6 @@ const TodoPage = () => {
 
         <main className={styles.mainContent}>
           <TodoForm />
-          <Todos />
         </main>
 
         <footer className={styles.footer}>

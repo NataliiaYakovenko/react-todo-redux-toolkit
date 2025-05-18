@@ -58,9 +58,9 @@ const TodoForm = ({
                   <button className={styles.btnAddTask} type="submit">
                     ADD
                   </button>
-
+                  
                   <ErrorMessage
-                    className={styles.errorrNewTask}
+                    className={styles.errorNewTask}
                     name="newTask"
                     component="p"
                   />
