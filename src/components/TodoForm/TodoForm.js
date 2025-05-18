@@ -12,6 +12,7 @@ import styles from "./TodoForm.module.scss";
 import TODO_SCHEMA from "../../schemas/TodoSchema";
 import TitleTooltip from "./Tooltip";
 
+
 const initialState = {
   newTask: "",
   deadline: "",
@@ -45,6 +46,7 @@ const TodoForm = ({
           return (
             <Form>
               <div className={styles.newTaskWrapper}>
+
                 <label>
                   <Field
                     className={cx(styles.addTask, {
@@ -138,12 +140,12 @@ const TodoForm = ({
   );
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({todo:{arrayTask,newTask,deadline,error}}) => {
   return {
-    arrayTask: state.todo.arrayTask,
-    newTask: state.todo.newTask,
-    deadline: state.todo.deadline,
-    error: state.todo.error,
+    arrayTask: arrayTask,
+    newTask: newTask,
+    deadline: deadline,
+    error: error,
   };
 };
 

@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import slides from "./SladerArray";
 import styles from "./Slader.module.scss";
 
-
-
 function Slider() {
   const [current, setCurrent] = useState(0);
 
@@ -11,7 +9,6 @@ function Slider() {
     const intervalId = setInterval(() => {
       setCurrent((prev) => (prev + 1) % slides.length);
     }, 7000);
-
     return () => clearInterval(intervalId);
   }, []);
 

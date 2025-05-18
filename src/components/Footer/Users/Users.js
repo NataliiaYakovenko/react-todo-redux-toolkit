@@ -42,11 +42,13 @@ const Users = ({ users, isFetching, error, getUsers }) => {
                   <p className={styles.userName}>
                     {u.name.first} {u.name.last}
                   </p>
+
                   <p className={styles.comment}>Comments...</p>
                 </div>
               );
             })}
           </div>
+
           <button className={styles.nextPage} onClick={nextBtnHandler}>
             {">"}
           </button>
@@ -56,10 +58,10 @@ const Users = ({ users, isFetching, error, getUsers }) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  isFetching: state.users.isFetching,
-  error: state.users.error,
-  users: state.users.users,
+const mapStateToProps = ({ users: { isFetching, error, users } }) => ({
+  isFetching: isFetching,
+  error: error,
+  users: users,
 });
 
 const mapDispatchToProps = (dispatch) => ({

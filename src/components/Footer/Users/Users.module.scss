@@ -119,23 +119,16 @@
     }
 
     .usersCards {
-      // display: flex;
       flex-wrap: wrap;
       gap: 20px;
 
       .usersContainer {
-        // width: 120px;
-        // height: 120px;
-
         .usersImage {
           margin: 0;
-          // width: 25%;
-          // height: 25%;
         }
 
         .userName {
           margin: 0;
-          // font-size: 12px;
         }
       }
     }

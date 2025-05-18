@@ -23,10 +23,10 @@ const Weather = ({ weather, isFetching, error, getWeather }) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  isFetching: state.weather.isFetching,
-  error: state.weather.error,
-  weather: state.weather.weather,
+const mapStateToProps = ({weather:{isFetching,error,weather}}) => ({
+  isFetching: isFetching,
+  error: error,
+  weather: weather,
 });
 
 const mapDispatchToProps = (dispatch) => ({

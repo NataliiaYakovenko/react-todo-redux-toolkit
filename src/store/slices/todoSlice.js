@@ -12,8 +12,7 @@ const todoSlice = createSlice({
   initialState,
   name: "todo",
   reducers: {
-    addTask: (state,{payload}) => {
-      console.log(payload);
+    addTask: (state, { payload }) => {
       const newObjectTask = {
         id: uuidv4(),
         text: payload.newTask,
