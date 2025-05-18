@@ -4,7 +4,7 @@ const TODO_SCHEMA = yup.object({
   newTask: yup
     .string()
     .trim()
-    .required("You need to enter your task."),
+    .required("Enter your task."),
 });
 
 export default TODO_SCHEMA;

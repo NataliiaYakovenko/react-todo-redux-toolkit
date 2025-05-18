@@ -3,7 +3,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  min-width: 300px;
+  min-width: 350px;
   padding: 20px;
   color: white;
 
@@ -13,16 +13,18 @@
     background-color: transparent;
     border: none;
     color: white;
+    margin: 5px;
   }
 
-  .previousPage:hover{
+  .previousPage:hover {
     color: orange;
   }
 
   .usersCards {
     display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
+    flex-direction: row;
+    justify-content: center;
+    gap: 50px;
 
     .usersContainer {
       display: flex;
@@ -33,7 +35,6 @@
       height: 150px;
       border: 3px solid white;
       border-radius: 5px;
-      padding: 5px;
 
       .usersImage {
         width: 38%;
@@ -51,23 +52,96 @@
         white-space: wrap;
         line-height: 16px;
       }
+
+      .comment {
+        margin: 0;
+      }
     }
   }
 
-  .usersContainer:hover{
+  .usersContainer:hover {
     border: 3px solid orange;
     color: orange;
   }
-  
+
   .nextPage {
     font-size: 50px;
     font-weight: bolder;
     background-color: transparent;
     border: none;
     color: white;
+    margin: 5px;
   }
 
-  .nextPage:hover{
+  .nextPage:hover {
     color: orange;
+  }
+}
+
+@media (max-width: 923px) {
+  .usersWrapper {
+    .previousPage {
+      font-size: 40px;
+    }
+
+    .usersCards {
+      gap: 30px;
+
+      .usersContainer {
+        width: 120px;
+        height: 120px;
+
+        .usersImage {
+          width: 25%;
+          height: 25%;
+        }
+
+        .userName {
+          font-size: 12px;
+        }
+
+        .comment {
+          font-size: 12px;
+        }
+      }
+    }
+
+    .nextPage {
+      font-size: 40px;
+    }
+  }
+}
+
+@media (max-width: 671px) {
+  .usersWrapper {
+    .previousPage {
+      font-size: 20px;
+    }
+
+    .usersCards {
+      // display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+
+      .usersContainer {
+        // width: 120px;
+        // height: 120px;
+
+        .usersImage {
+          margin: 0;
+          // width: 25%;
+          // height: 25%;
+        }
+
+        .userName {
+          margin: 0;
+          // font-size: 12px;
+        }
+      }
+    }
+
+    .nextPage {
+      font-size: 20px;
+    }
   }
 }

@@ -11,7 +11,7 @@
   padding-top: 0;
 
   .title {
-    font-size: 300%;
+    font-size: 50px;
     margin-top: auto;
     text-align: center;
     position: relative;
@@ -20,14 +20,15 @@
   .title[data-tooltip]::after {
     content: attr(data-tooltip);
     position: absolute;
-    left: 5%;
+    left: 15%;
+    // transform: translateX(-50%);
     transform: translateX(-50%);
     background-color: rgb(209, 227, 203);
     color: blue;
     padding: 2%;
     border-radius: 8px;
-    font-size: 45%;
-    max-width: 40%;
+    font-size: 30%;
+    max-width: 15%;
     white-space: pre-line;
     z-index: 999;
     opacity: 0;
@@ -46,7 +47,7 @@
     justify-content: center;
 
     .addTask {
-      font-size: 190%;
+      font-size: 31px;
       padding: 5px;
       background-color: rgb(27, 39, 150);
       color: white;
@@ -63,7 +64,8 @@
     .errorNewTask {
       margin-top: auto;
       margin-left: 2%;
-      font-size: 130%;
+      margin-bottom: 0;
+      font-size: 30px;
       color: white;
       font-weight: bolder;
     }
@@ -73,7 +75,7 @@
     }
 
     .btnAddTask {
-      font-size: 190%;
+      font-size: 31px;
       padding: 5px;
       background-color: rgba(32, 3, 19, 0.95);
       color: white;
@@ -87,12 +89,12 @@
     }
 
     .deadlineAddTask {
-      font-size: 250%;
-      margin-left: 20%;
+      font-size: 20px;
+      margin-left: 30px;
       color: rgb(238, 237, 231);
       background-color: rgb(27, 39, 150);
       border-radius: 10px;
-      padding: 3px;
+      padding: 10px;
       border: none;
     }
   }
@@ -131,9 +133,10 @@
     }
 
     .deadline {
-      font-size: 200%;
+      font-size: 30px;
       font-weight: bolder;
       margin-left: 2%;
+      margin-top: 1%;
     }
   }
 }
@@ -144,6 +147,9 @@
 
     .title {
       font-size: 40px;
+    }
+    .title[data-tooltip]::after{
+      left: 10%;
     }
 
     .newTaskWrapper {
@@ -158,23 +164,37 @@
         font-size: 30px;
       }
 
+      .errorNewTask {
+        font-size: 25px;
+        margin-bottom: 0;
+      }
+
       .deadlineAddTask {
-        font-size: 30px;
-        width: 70%;
+        font-size: 25px;
+        width: 60%;
+        padding: 6px;
       }
     }
 
     .listTasks {
       width: 70%;
       font-size: 12px;
+      margin-top: 10px;
 
       .checkbox {
-        width: 20px;
-        height: 20px;
+        width: 18px;
+        height: 18px;
+      }
+
+      .listText {
+     
+
       }
 
       .deadline {
-        margin-top: 1%;
+        margin-top: 2%;
+        margin-left: 30px;
+        font-size: 20px;
       }
     }
   }
@@ -193,13 +213,21 @@
       .addTask {
         font-size: 20px;
       }
+      .errorNewTask {
+        // margin-top: auto;
+        // margin-left: 2%;
+        font-size: 15px;
+        color: white;
+        font-weight: bolder;
+      }
 
       .btnAddTask {
         font-size: 20px;
       }
 
       .deadlineAddTask {
-        font-size: 22px;
+        font-size: 20px;
+        padding: 4px;
       }
     }
 
@@ -210,13 +238,31 @@
         width: 15px;
         height: 15px;
       }
+      .listText {
+        font-size: 100%;
+        padding: 5px;
+    
+      }
+  
+      .btnList {
+        // font-size: 100%;
+        // background-color: white;
+        // border: none;
+        // border-color: white;
+        // border-top-right-radius: 10px;
+        // border-bottom-right-radius: 10px;
+        // color: blue;
+      }
+  
+      .deadline {
+        font-size: 15px;
+       
+      }
     }
   }
 }
 
-
-
-@media (max-width: 657px) {
+@media (max-width: 693px) {
   .todoWrapper {
     padding: 4%;
 
@@ -225,43 +271,36 @@
       margin-bottom: 10px;
       text-align: center;
     }
+    .title[data-tooltip]::after{
+      left: 6%;
+    }
 
     .newTaskWrapper {
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
-      gap: 10px;
+      margin-left: 0;
 
-      label:first-of-type {
-        display: flex;
-        width: 100%;
-        justify-content: center;
-
-        .addTask {
-          font-size: 16px;
-          width: 70%;
-          // border-top-right-radius: 0;
-          // border-bottom-right-radius: 0;
-          margin: 0;
-        }
-
-        .btnAddTask {
-          font-size: 16px;
-          width: 30%;
-          // border-top-left-radius: 0;
-          // border-bottom-left-radius: 0;
-          margin: 0;
-        }
-      }
-
-      .deadlineAddTask {
+      .addTask {
         font-size: 16px;
-        width: 100%;
+        width: 70%;
+        margin: 0;
+        padding: 8px;
       }
 
       .errorrNewTask {
-        font-size: 14px;
+        font-size: 10px;
         text-align: center;
+      }
+
+      .btnAddTask {
+        font-size: 16px;
+        width: 20%;
+        margin: 0;
+        padding: 8px;
+      }
+      .deadlineAddTask {
+        width: 30px;
+        padding: 1px;
+        font-size: 25px;
+
       }
     }
 
@@ -277,16 +316,16 @@
       gap: 5px;
 
       .checkbox {
-        width: 15px;
-        height: 15px;
+        width: 12px;
+        height: 12px;
         // margin: 0 5px;
       }
 
       .listText {
         width: 40%;
-        font-size: 14px;
+        font-size: 10px;
         margin: 0;
-        padding: 5px;
+        padding: 1px;
       }
 
       .btnList {
